@@ -3,18 +3,20 @@
 
 ######################### We start with some black magic to print on failure.
 
-# Change 1..1 below to 1..last_test_to_print .
-# (It may become useful if the test is moved to ./t subdirectory.)
+# change 'tests => 1' to 'tests => last_test_to_print';
 
-BEGIN { $| = 1; print "1..1\n"; }
-END {print "not ok 1\n" unless $loaded;}
+use Test;
+BEGIN { plan tests => 2 };
 use Statistics::ChiSquare;
-$loaded = 1;
-print "ok 1\n";
+@coin = (500, 500);
+ok(1); # If we made it this far, we're ok.
 
 ######################### End of black magic.
 
 # Insert your test code below (better if it prints "ok 13"
 # (correspondingly "not ok 13") depending on the success of chunk 13
 # of the test code):
+
+ok(Statistics::ChiSquare::chisquare(@coin),
+   "There's a >99% chance, and a <100% chance, that this data is random.");
 

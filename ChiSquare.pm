@@ -4,14 +4,14 @@ package Statistics::ChiSquare;
 #
 # Jon Orwant, orwant@media.mit.edu
 #
-# 31 Oct 95, revised Mon Oct 18 12:16:47 1999
+# 31 Oct 95, revised Mon Oct 18 12:16:47 1999, and again November 2001
+# to fix an off-by-one error
 #
-# Copyright 1995, 1999 Jon Orwant.  All rights reserved.
+# Copyright 1995, 1999, 2001 Jon Orwant.  All rights reserved.
 # This program is free software; you can redistribute it and/or
 # modify it under the same terms as Perl itself.
 # 
-# Version 0.2.  Module list status is "Rdpf"
-
+# Version 0.3.  Module list status is "Rdpf"
 
 use strict;
 use vars qw($VERSION @ISA @EXPORT);
@@ -25,7 +25,7 @@ require AutoLoader;
 # Do not simply export all your public functions/methods/constants.
 @EXPORT = qw(chisquare);
 
-$VERSION = '0.2';
+$VERSION = '0.3';
 
 my @chilevels = (100, 99, 95, 90, 70, 50, 30, 10, 5, 1);
 my %chitable = ();
@@ -48,7 +48,7 @@ sub chisquare {
     }
     foreach (@{$chitable{$degrees_of_freedom}}) {
 	if ($chisquare < $_) {
-	    return "There's a >$chilevels[$i]% chance, and a <$chilevels[$i-1]% chance, that this data is random.";
+	    return "There's a >$chilevels[$i+1]% chance, and a <$chilevels[$i]% chance, that this data is random.";
 	}
 	$i++;
     }
@@ -191,8 +191,8 @@ So much for pseudorandom number generation.
 
 Jon Orwant
 
-MIT Media Laboratory
+Readable Publications, Inc.
 
-orwant@media.mit.edu
+orwant@oreilly.com
 
 =cut
