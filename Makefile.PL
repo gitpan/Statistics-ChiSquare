@@ -1,8 +1,7 @@
 use ExtUtils::MakeMaker;
+# See lib/ExtUtils/MakeMaker.pm for details of how to influence
+# the contents of the Makefile that is written.
 WriteMakefile(
-	NAME => "Statistics::ChiSquare",
-	DISTNAME => "Statistics-ChiSquare",
-	linkext => {LINKTYPE => ''}, # not needed for MakeMakers >= 5
-	VERSION => "0.1",
-        dist => {COMPRESS=>'gzip -9f'},
+    'NAME'	=> 'Statistics::ChiSquare',
+    'VERSION_FROM' => 'ChiSquare.pm', # finds $VERSION
 );
