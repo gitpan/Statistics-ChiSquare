@@ -1,5 +1,6 @@
 Changes
-ChiSquare.pm
-MANIFEST
+lib/Statistics/ChiSquare.pm
 Makefile.PL
+MANIFEST
+README
 test.pl
