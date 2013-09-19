@@ -15,8 +15,6 @@ package Statistics::ChiSquare;
 # modify it under the same terms as Perl itself.
 #
 # some sections Copyright 2003 David Cantrell
-# 
-# Version 0.5.  Module list status is "Rdpfp"
 
 use strict;
 use vars qw($VERSION @ISA @EXPORT);
@@ -26,7 +24,7 @@ require Exporter;
 @ISA = qw(Exporter);
 @EXPORT = qw(chisquare);
 
-$VERSION = '0.5';
+$VERSION = '0.6';
 
 my @chilevels = ();
 my @chitable  = ();
@@ -103,7 +101,7 @@ C<Statistics::ChiSquare> - How well-distributed is your data?
 
 =head1 SYNOPSIS
 
-    use Statistics::Chisquare;
+    use Statistics::ChiSquare;
 
     print chisquare(@array_of_numbers);
 
@@ -126,13 +124,17 @@ on the likelihood that the variation in your data is due to chance.
 See the examples below. 
 
 If you've ever studied elementary genetics, you've probably heard
-about Georg Mendel.  He was a wacky Austrian botanist who discovered
+about Gregor Mendel.  He was a wacky Austrian botanist who discovered
 (in 1865) that traits could be inherited in a predictable fashion.  He
 did lots of experiments with cross breeding peas: green peas, yellow
 peas, smooth peas, wrinkled peas.  A veritable Brave New World of legumes.
 
 But Mendel faked his data.  A statistician by the name of R. A. Fisher used
 the chi-square test to prove it.
+
+=head1 FUNCTIONS
+
+=head2 chisquare
 
 There's just one function in this module: chisquare().  Instead of
 returning the bounds on the confidence interval in a tidy little
@@ -151,7 +153,6 @@ or
 or 
 
   "I can't handle \d+ choices without a better table."
-
 
 That last one deserves a bit more explanation.  The "modern"
 chi-square test uses a table of values (based on Pearson's
@@ -214,11 +215,17 @@ prints (on my machine)
 
 So much for pseudorandom number generation.
 
-=head1 AUTHORS
+=head1 AUTHORS and LICENCE
 
 Jon Orwant, Readable Publications, Inc; orwant@oreilly.com
 
 Maintained and updated since October 2003 by David Cantrell,
 david@cantrell.org.uk
+
+This software is free-as-in-speech software, and may be used, distributed,
+and modified under the terms of either the GNU General Public Licence
+version 2 or the Artistic Licence. It's up to you which one you use. The
+full text of the licences can be found in the files GPL2.txt and
+ARTISTIC.txt, respectively.
 
 =cut
